@@ -1,5 +1,9 @@
 
+package require huddle 0.1.5
 
+#
+# load_array - quickly load up airport data into the airport array
+#
 proc load_array {} {
 	set fp [open airports.array]
 	array set ::airport [read $fp]
@@ -8,8 +12,10 @@ proc load_array {} {
 
 load_array
 
-package require huddle
-
+#
+# huddle_school - generate geojson for the specified number of
+#   airports (up to 30,000+)
+#
 proc huddle_school {howMany} {
     set airport_json [huddle list]
 
